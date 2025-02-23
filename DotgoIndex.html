@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dot Go Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; scroll-behavior: smooth; }
+    h1, h2, h3 { margin-bottom: 1rem; }
+    p { margin-bottom: 0.75rem; }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 4rem 1.5rem; text-align: center; }
+    .btn { padding: 1rem 2rem; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
+    .btn-primary { background-color: #ff7e5f; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .btn-primary:hover { background-color: #feb47b; transform: scale(1.05); }
+    .btn-secondary { background-color: transparent; border: 2px solid #ff7e5f; color: #ff7e5f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .btn-secondary:hover { background-color: #ff7e5f; color: #fff; transform: scale(1.05); }
+
+    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo img { height: 80px; width:80px; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav ul li a { padding: 0.5rem 1rem; border-radius: 10px; }
+    nav ul li a:hover { background-color: #ff7e5f; color: #fff; }
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+
+    .hero { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #ff7e5f, #feb47b); color: #fff; text-align: center; flex-direction: column; gap: 1.5rem; }
+    .hero h1 { font-size: 3rem; font-weight: bold; }
+    .hero p { font-size: 1.2rem; max-width: 600px; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+
+    .steps, .pricing-cards { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2rem; }
+    .step, .card { background-color: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .step:hover, .card:hover { transform: translateY(-5px); }
+    .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .price { font-size: 2rem; color: #ff7e5f; margin: 0.5rem 0; }
+
+    form { display: grid; gap: 1rem; max-width: 500px; margin: 2rem auto; text-align: left; background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    input, textarea, select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; }
+
+    footer { background: #222; color: #ddd; padding: 2rem; font-size: 0.9rem; text-align: center; }
+    footer a { color: #ff7e5f; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: #fff; position: absolute; top: 70px; right: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 1rem; }
+      nav ul.active { display: flex; }
+      .hamburger { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Dot Go Delivery Logo" />
+    </div>
+    <nav>
+      <div class="hamburger">☰</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#request-delivery">Request Delivery</a></li>
+        <li><a href="#become-driver">Become a Driver</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero" data-aos="fade-in">
+    <h1>Fast, Reliable Deliveries! 🚀</h1>
+    <p>Connect with drivers already on the road for quick, eco-friendly deliveries.</p>
+    <div class="hero-buttons">
+      <a href="#request-delivery" class="btn btn-primary" data-aos="zoom-in">📦 Request Delivery</a>
+      <a href="#become-driver" class="btn btn-secondary" data-aos="zoom-in">🚗 Become a Driver</a>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Us 🌍</h2>
+    <p>Dot Go connects you with nearby drivers, ensuring fast, affordable, and sustainable deliveries.</p>
+  </section>
+
+  <section id="how-it-works" data-aos="fade-up">
+    <h2>How It Works 🛠️</h2>
+    <div class="steps">
+      <div class="step" data-aos="fade-right"><div class="icon">📝</div><h3>1. Request</h3><p>Fill in your delivery details.</p></div>
+      <div class="step" data-aos="zoom-in"><div class="icon">🚗</div><h3>2. Pickup</h3><p>Your driver picks up the package.</p></div>
+      <div class="step" data-aos="fade-left"><div class="icon">📬</div><h3>3. Delivery</h3><p>Your package arrives safely and on time.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing" data-aos="fade-up">
+    <h2>Pricing 💵</h2>
+    <div class="pricing-cards">
+      <div class="card" data-aos="fade-right"><h3>📍 Local</h3><p>0-5 km</p><p class="price">R25</p></div>
+      <div class="card" data-aos="zoom-in"><h3>🚀 Medium</h3><p>5-10 km</p><p class="price">R45</p></div>
+      <div class="card" data-aos="fade-left"><h3>🌍 Extended</h3><p>10-15 km</p><p class="price">R65</p></div>
+    </div>
+    <p>*Extra charges beyond 15 km.</p>
+  </section>
+
+  <section id="request-delivery" data-aos="fade-up">
+    <h2>Request Delivery 📦</h2>
+    <form id="delivery-form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="tel" name="phone" placeholder="Phone" required />
+      <input type="text" name="pickup" placeholder="Pickup Address" required />
+      <input type="text" name="delivery" placeholder="Delivery Address" required />
+      <textarea name="package" placeholder="Package Description" required></textarea>
+      <textarea name="instructions" placeholder="Special Instructions"></textarea>
+      <button type="submit" class="btn btn-primary">📨 Submit</button>
+    </form>
+  </section>
+
+  <section id="become-driver" data-aos="fade-up">
+    <h2>Become a Driver 🚙</h2>
+    <form id="driver-form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="tel" name="phone" placeholder="Phone" required />
+      <select name="vehicle" required>
+        <option value="">Vehicle Type</option>
+        <option>🚗 Car</option>
+        <option>🏍️ Bike</option>
+        <option>🚐 Van</option>
+      </select>
+      <input type="text" name="license" placeholder="License Number" required />
+      <input type="number" name="experience" placeholder="Years of Experience" required />
+      <button type="submit" class="btn btn-primary">✅ Apply</button>
+    </form>
+  </section>
+
+  <footer id="contact" data-aos="fade-up">
+    <p>📞 <a href="tel:+27734666595">073 466 6595</a> | ✉️ <a href="mailto:contact@dotgo.com">contact@dotgo.com</a></p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>© 2025 Dot Go. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-links li a');  // Select all navbar links
+
+  // Toggle navbar on hamburger click
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Close the navbar when any link is clicked
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');  // Close navbar if it's open
+      }
+    });
+  });
+    const whatsappRedirect = (form, messageTemplate) => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const message = messageTemplate(data);
+        window.open(`https://wa.me/27734666595?text=${encodeURIComponent(message)}`, '_blank');
+        alert('Form submitted!');
+        form.reset();
+      });
+    };
+
+    whatsappRedirect(document.getElementById('delivery-form'), data => 
+      `Request Delivery:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0APickup: ${data.get('pickup')}%0ADelivery: ${data.get('delivery')}%0APackage: ${data.get('package')}%0AInstructions: ${data.get('instructions') || 'None'}`
+    );
+
+    whatsappRedirect(document.getElementById('driver-form'), data => 
+      `Driver Application:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0AVehicle: ${data.get('vehicle')}%0ALicense: ${data.get('license')}%0AExperience: ${data.get('experience')} years`
+    );
+  </script>
+</body>
+</html>
