@@ -16,24 +16,117 @@
     p { margin-bottom: 0.75rem; }
     a { text-decoration: none; color: inherit; }
     section { padding: 4rem 1.5rem; text-align: center; }
-    .btn { padding: 1rem 2rem; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
-    .btn-primary { background-color: #ff7e5f; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    .btn-primary:hover { background-color: #feb47b; transform: scale(1.05); }
-    .btn-secondary { background-color: transparent; border: 2px solid #ff7e5f; color: #ff7e5f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .btn-secondary:hover { background-color: #ff7e5f; color: #fff; transform: scale(1.05); }
+    .button {
+    background: linear-gradient(45deg, #4BCFFA, #FF6B00);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(75, 207, 250, 0.8);
+    transition: 0.3s ease-in-out;
+}
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 107, 0, 0.8);
+}
 
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-    .logo { display: flex; align-items: center; gap: 0.5rem; }
-    .logo img { height: 80px; width:80px; }
-    nav ul { display: flex; gap: 1rem; list-style: none; }
-    nav ul li a { padding: 0.5rem 1rem; border-radius: 10px; }
-    nav ul li a:hover { background-color: #ff7e5f; color: #fff; }
+header {
+    position: absolute; /* Makes navbar overlay the hero section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent; /* Removes navbar background */
+    padding: 1rem 2rem;
+    z-index: 100;
+}
+    
+}
+.logo {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Same gradient */
+    padding: 10px 15px; /* Adds spacing around the logo */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    color: white; /* Ensures contrast */
+}
+/* Floating effect for the logo */
+  .logo img {
+    height: 90px;
+    width: auto;
+    animation: float 2s ease-in-out infinite;
+  }
+  <!-- Logo with floating effect -->
+<div class="logo floating">
+  <img src="logo.png" alt="Dot Go Logo">
+</div>
+
+    .logo img {
+    height: 90px; /* Adjust logo size */
+    width: auto; /* Keeps aspect ratio */
+}
+    .navbar {
+    background: rgba(10, 10, 10, 0.9); /* Slight transparency */
+    box-shadow: 0px 0px 10px rgba(75, 207, 250, 0.5); /* Soft neon shadow */
+    padding: 15px 20px;
+   @keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.navbar {
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0px 0px 10px rgba(75, 207, 250, 0.5);
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    animation: slideDown 1s ease-in-out;
+}
+
+}
+.navbar a {
+    color: #4BCFFA; /* Neon blue links */
+    text-shadow: 0px 0px 5px rgba(75, 207, 250, 0.8);
+    font-weight: bold;
+}
+.navbar a:hover {
+    color: #FF6B00; /* Accent color */
+    text-shadow: 0px 0px 10px rgba(255, 107, 0, 0.8);
+    
+}
+
     .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
 
-    .hero { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #ff7e5f, #feb47b); color: #fff; text-align: center; flex-direction: column; gap: 1.5rem; }
+    @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+    background: url('images/bg.png');
+background-size: 600px 580px; /* Ensure the whole image is displayed */
+    background-position: -150px center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-attachment: fixed; /* Optional: Keeps the background in place when scrolling */
+background-blur: 10px; /* Optional, for a glassmorphism effect */
+
+    text-shadow: 0px 0px 10px rgba(75, 207, 250, 0.8);
+    padding: 100px 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
     .hero h1 { font-size: 3rem; font-weight: bold; }
-    .hero p { font-size: 1.2rem; max-width: 600px; }
+    .hero p { font-size: 1.3rem; max-width: 600px;color:rgba(254,254,254,0.977);font-weight: bold; }
     .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+    .hero .btn { font-size: 1.2rem; padding: 1rem 2.5rem; }
+    .hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 107, 0, 0.4);
+  }
+
+  .hero-buttons .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(255, 107, 0, 0.5);
+  }
 
     .steps, .pricing-cards { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2rem; }
     .step, .card { background-color: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
@@ -48,19 +141,45 @@
     footer a { color: #ff7e5f; }
 
     @media (max-width: 768px) {
-      nav ul { display: none; flex-direction: column; background: #fff; position: absolute; top: 70px; right: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 1rem; }
+      nav ul { display: none; flex-direction: column; background: #ff7e5f; position: absolute; top: 70px; right: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.5); padding: 1rem; }
       nav ul.active { display: flex; }
       .hamburger { display: block; }
     }
+    /* Floating effect for buttons and logo */
+  .floating {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Modern button styles */
+  .hero-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #4BCFFA, #FF6B00);
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(75, 207, 250, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="logo.png" alt="Dot Go Delivery Logo" />
-    </div>
+  <img src="logo.png" alt="Dot Go Logo">
+</div>
+
     <nav>
-      <div class="hamburger">☰</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
@@ -73,13 +192,14 @@
     </nav>
   </header>
 
-  <section id="home" class="hero" data-aos="fade-in">
-    <h1>Fast, Reliable Deliveries! 🚀</h1>
-    <p>Connect with drivers already on the road for quick, eco-friendly deliveries.</p>
-    <div class="hero-buttons">
-      <a href="#request-delivery" class="btn btn-primary" data-aos="zoom-in">📦 Request Delivery</a>
-      <a href="#become-driver" class="btn btn-secondary" data-aos="zoom-in">🚗 Become a Driver</a>
-    </div>
+  <!-- Hero section with floating buttons -->
+<section id="home" class="hero" data-aos="fade-in">
+  <h1>Fast, Reliable Deliveries! 🚀</h1>
+  <p>Connect with drivers already on the road for quick, eco-friendly deliveries.</p>
+  <div class="hero-buttons">
+    <a href="#request-delivery" class="btn floating" data-aos="zoom-in">📦 Request Delivery</a>
+    <a href="#become-driver" class="btn floating" data-aos="zoom-in">🚗 Become a Driver</a>
+  </div>
   </section>
 
   <section id="about" data-aos="fade-up">
@@ -148,22 +268,7 @@
     document.querySelector('.hamburger').addEventListener('click', () => {
       document.querySelector('.nav-links').classList.toggle('active');
     });
-const navLinks = document.querySelector('.nav-links');
-  const navItems = document.querySelectorAll('.nav-links li a');  // Select all navbar links
 
-  // Toggle navbar on hamburger click
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close the navbar when any link is clicked
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');  // Close navbar if it's open
-      }
-    });
-  });
     const whatsappRedirect = (form, messageTemplate) => {
       form.addEventListener('submit', e => {
         e.preventDefault();
@@ -182,9 +287,6 @@ const navLinks = document.querySelector('.nav-links');
     whatsappRedirect(document.getElementById('driver-form'), data => 
       `Driver Application:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0AVehicle: ${data.get('vehicle')}%0ALicense: ${data.get('license')}%0AExperience: ${data.get('experience')} years`
     );
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"
   </script>
 </body>
 </html>
