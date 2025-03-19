@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Go - Fast Deliveries, Faster Smiles!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(45deg, #1B1464, #111111);
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2.5rem, 10vw, 4rem); /* Responsive font size */
+            background: linear-gradient(90deg, #FF0080, #9C1AFF, #00DBFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .message {
+            font-size: clamp(1.5rem, 6vw, 2.5rem); /* Responsive font size */
+            margin: 1rem 0;
+            text-shadow: 0 0 10px #FF6B00;
+        }
+
+        .message span {
+            display: inline-block;
+            animation: bounce 1.5s infinite;
+        }
+
+        .progress-bar {
+            width: 80%; /* Wider on mobile */
+            max-width: 400px; /* Limit width on larger screens */
+            height: 20px; /* Thinner on mobile */
+            background: #111111;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 20px #00DBFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, #FF0080, #9C1AFF, #00DBFF);
+            border-radius: 20px;
+            position: relative;
+            animation: loading 2s ease-in-out, glow 1.5s infinite alternate;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem; /* Smaller gap on mobile */
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            font-size: clamp(1.5rem, 8vw, 2.5rem); /* Responsive icon size */
+            color: white;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            color: #FF6B00;
+            text-shadow: 0 0 20px #FF6B00;
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background-animation img {
+            position: absolute;
+            width: 80px; /* Smaller vehicles on mobile */
+            animation: moveDelivery 10s linear infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 70%; }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px #9C1AFF; }
+            to { box-shadow: 0 0 20px #00DBFF; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes moveDelivery {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        /* Media Queries for Smaller Screens */
+        @media (max-width: 768px) {
+            .progress-bar {
+                width: 90%; /* Wider on smaller screens */
+                height: 15px; /* Thinner on smaller screens */
+            }
+
+            .message {
+                font-size: clamp(1.2rem, 6vw, 2rem); /* Smaller text on mobile */
+            }
+
+            .social-icons {
+                gap: 1rem; /* Smaller gap on mobile */
+            }
+
+            .background-animation img {
+                width: 60px; /* Smaller vehicles on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <!-- Delivery vehicles moving across the screen -->
+        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 20%; animation-delay: 0s;">
+        <img src="deliverytruck.jpg" alt="Delivery Truck" style="top: 50%; animation-delay: 3s;">
+        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 80%; animation-delay: 6s;">
+    </div>
+
+    <div class="container">
+        <h1 class="logo">DOT GO DELIVERIES</h1>
+        <p class="message">
+            Fast deliveries are our superpower. 🦸‍♂️🚚 But even superheroes need a minute to load their websites. Don’t worry—we’re 70% there, and our drivers are already practicing their superhero landings😅
+
+<br>Fun fact: Our drivers are so fast, they once delivered a package before it was even ordered. (Okay, maybe not. But we’re close!) 😏 🚀
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <p style="margin: 1rem 0; font-size: clamp(0.9rem, 4vw, 1.2rem);">
+            70% ready • 100% fast • 200% reliable
+        </p>
+
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive cursor effects (optional for mobile)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('mousemove', (e) => {
+                const glow = document.createElement('div');
+                glow.style.position = 'fixed';
+                glow.style.width = '20px';
+                glow.style.height = '20px';
+                glow.style.background = 'radial-gradient(circle, #00DBFF, transparent)';
+                glow.style.borderRadius = '50%';
+                glow.style.left = e.clientX - 10 + 'px';
+                glow.style.top = e.clientY - 10 + 'px';
+                glow.style.pointerEvents = 'none';
+                document.body.appendChild(glow);
+                
+                setTimeout(() => glow.remove(), 500);
+            });
+        });
+    </script>
+</body>
+</html>
