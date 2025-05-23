@@ -1,215 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dot Go - Fast Deliveries, Faster Smiles!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DotGo - Tumellow Fast, Reliable Deliveries in Polokwane. Order from local shops and get your packages delivered hassle-free!">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR_TRACKING_ID');
+</script>
+  <title>Dot Go Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; scroll-behavior: smooth; }
+    h1, h2, h3 { margin-bottom: 1rem; }
+    p { margin-bottom: 0.75rem; }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 4rem 1.5rem; text-align: center; }
+    .button {
+      background: linear-gradient(45deg, #4BCFFA, #FF6B00);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px rgba(75, 207, 250, 0.8);
+      transition: 0.3s ease-in-out;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 20px rgba(255, 107, 0, 0.8);
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            background: linear-gradient(45deg, #1B1464, #111111);
-            color: white;
-        }
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      padding: 1rem 2rem;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            padding: 1rem;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    .logo {
+      background: linear-gradient);
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+    }
+    .logo img {
+      height: 90px;
+      width: auto;
+      animation: float 2s ease-in-out infinite;
+    }
 
-        .logo {
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(2.5rem, 10vw, 4rem); /* Responsive font size */
-            background: linear-gradient(90deg, #FF0080, #9C1AFF, #00DBFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px rgba(255,255,255,0.3);
-        }
+    .navbar {
+      background: rgba(10, 10, 10, 0.9);
+      box-shadow: 0px 0px 10px rgba(75, 207, 250, 0.5);
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      animation: slideDown 1s ease-in-out;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .message {
-            font-size: clamp(1.5rem, 6vw, 2.5rem); /* Responsive font size */
-            margin: 1rem 0;
-            text-shadow: 0 0 10px #FF6B00;
-        }
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
 
-        .message span {
-            display: inline-block;
-            animation: bounce 1.5s infinite;
-        }
+    .navbar a {
+      color: #4BCFFA;
+      text-shadow: 0px 0px 5px rgba(75, 207, 250, 0.8);
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #FF6B00;
+      text-shadow: 0px 0px 10px rgba(255, 107, 0, 0.8);
+    }
 
-        .progress-bar {
-            width: 80%; /* Wider on mobile */
-            max-width: 400px; /* Limit width on larger screens */
-            height: 20px; /* Thinner on mobile */
-            background: #111111;
-            border-radius: 20px;
-            margin: 1.5rem 0;
-            box-shadow: 0 0 20px #00DBFF;
-            position: relative;
-            overflow: hidden;
-        }
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
 
-        .progress-fill {
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, #FF0080, #9C1AFF, #00DBFF);
-            border-radius: 20px;
-            position: relative;
-            animation: loading 2s ease-in-out, glow 1.5s infinite alternate;
-        }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
-        .social-icons {
-            display: flex;
-            gap: 1.5rem; /* Smaller gap on mobile */
-            margin-top: 2rem;
-        }
+    .hero {
+      background: url('bg8.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-shadow: 0px 0px 10px rgba(75, 207, 250, 0.8);
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-        .social-icon {
-            font-size: clamp(1.5rem, 8vw, 2.5rem); /* Responsive icon size */
-            color: white;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
+    .hero h1 { font-size: 3rem; font-weight: bold; }
+    .hero p { font-size: 1.3rem; max-width: 600px; color: rgba(254, 254, 254, 0.977); font-weight: bold; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+    .hero .btn { font-size: 1.2rem; padding: 1rem 2.5rem; }
+    .hero-buttons .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 107, 0, 0.4);
+    }
 
-        .social-icon:hover {
-            transform: scale(1.2);
-            color: #FF6B00;
-            text-shadow: 0 0 20px #FF6B00;
-        }
+    .hero-buttons .btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 5px 10px rgba(255, 107, 0, 0.5);
+    }
 
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
+    .steps, .pricing-cards { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2rem; }
+    .step, .card { background-color: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+    .step:hover, .card:hover { transform: translateY(-5px); }
+    .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .price { font-size: 2rem; color: #ff7e5f; margin: 0.5rem 0; }
 
-        .background-animation img {
-            position: absolute;
-            width: 80px; /* Smaller vehicles on mobile */
-            animation: moveDelivery 10s linear infinite;
-        }
+    form { display: grid; gap: 1rem; max-width: 500px; margin: 2rem auto; text-align: left; background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+    input, textarea, select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; }
 
-        @keyframes loading {
-            0% { width: 0%; }
-            100% { width: 70%; }
-        }
+    footer { background: #222; color: #ddd; padding: 2rem; font-size: 0.9rem; text-align: center; }
+    footer a { color: #ff7e5f; }
+    footer .social-icons { margin-top: 1rem; }
+    footer .social-icons a { margin: 0 0.5rem; font-size: 1.5rem; color: #4BCFFA; transition: color 0.3s ease; }
+    footer .social-icons a:hover { color: #FF6B00; }
 
-        @keyframes glow {
-            from { box-shadow: 0 0 10px #9C1AFF; }
-            to { box-shadow: 0 0 20px #00DBFF; }
-        }
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: #ff7e5f; position: absolute; top: 70px; right: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); padding: 1rem; }
+      nav ul.active { display: flex; }
+      .hamburger { display: block; }
+    }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+    .floating {
+      animation: float 2s ease-in-out infinite;
+    }
 
-        @keyframes moveDelivery {
-            0% { transform: translateX(-100px); }
-            100% { transform: translateX(calc(100vw + 100px)); }
-        }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
 
-        /* Media Queries for Smaller Screens */
-        @media (max-width: 768px) {
-            .progress-bar {
-                width: 90%; /* Wider on smaller screens */
-                height: 15px; /* Thinner on smaller screens */
-            }
+    .hero-buttons .btn, .form-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #4BCFFA, #FF6B00);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(75, 207, 250, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
 
-            .message {
-                font-size: clamp(1.1rem, 3vw, 2rem); /* Smaller text on mobile */
-            }
-
-            .social-icons {
-                gap: 1rem; /* Smaller gap on mobile */
-            }
-
-            .background-animation img {
-                width: 60px; /* Smaller vehicles on mobile */
-            }
-        }
-    </style>
+    /* Social Icons in Header */
+    .header-social-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .header-social-icons a {
+      font-size: 1.5rem;
+      color: #4BCFFA;
+      transition: color 0.3s ease;
+    }
+    .header-social-icons a:hover {
+      color: #FF6B00;
+    }
+  </style>
 </head>
 <body>
-    <div class="background-animation">
-        <!-- Delivery vehicles moving across the screen -->
-        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 20%; animation-delay: 0s;">
-        <img src="deliverytruck.jpg" alt="Delivery Truck" style="top: 50%; animation-delay: 3s;">
-        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 80%; animation-delay: 6s;">
-        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 20%; animation-delay: 3s;">
-        <img src="deliverytruck.jpg" alt="Delivery Truck" style="top: 50%; animation-delay: 7s;">
-        <img src="deliverybike.jpg" alt="Delivery Bike" style="top: 80%; animation-delay: 2s;">
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Dot Go Logo">
     </div>
 
-    <div class="container">
-        <h1 class="logo">DOT GO DELIVERIES</h1>
-        <p class="message">
-            Fast deliveries are our superpower. 🦸‍♂️🚚 But even superheroes need a minute to load their websites. Don’t worry, we’re 70% there, and our drivers are already practicing their superhero landings😅
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#request-delivery">Request Delivery</a></li>
+        <li><a href="#become-driver">Become a Driver</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-<br>Fun fact: Our drivers are so fast, they once delivered a package before it was even ordered. (Okay, maybe not. But we’re close!) 😏 🚀
-        </p>
+    <!-- Social Icons in Header -->
+    <div class="header-social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/27734666595" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </header>
 
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
+  <section id="home" class="hero" data-aos="fade-in">
+    <h1>Swift Delivery at Your Service! ⚡</h1>
+    <p>Need something delivered? We've got you covered! 🚚✨ Fast, reliable, and always on time!</p>
+    <div class="hero-buttons">
+      <a href="#request-delivery" class="btn floating" data-aos="zoom-in">📦 Request Delivery</a>
+      <a href="#become-driver" class="btn floating" data-aos="zoom-in">🚛 Become a Driver</a>
+    </div>
+  </section>
 
-        <p style="margin: 1rem 0; font-size: clamp(0.9rem, 4vw, 1.2rem);">
-            70% ready • 100% fast • 200% reliable
-        </p>
-<div class="social-icons">
-    <a href="https://wa.me/+27734666595" class="social-icon" target="_blank" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61573067285701" class="social-icon" target="_blank" title="Facebook">
-        <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://www.tiktok.com/@dotgodelivery" class="social-icon" target="_blank" title="TikTok">
-        <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://www.instagram.com/dotgodeliveries" class="social-icon" target="_blank" title="Instagram">
-        <i class="fab fa-instagram"></i>
-    </a>
-</div>
+  <section id="how-it-works" data-aos="fade-up">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step" data-aos="fade-right">
+        <div class="icon">📱</div>
+        <h3>1. Request Delivery</h3>
+        <p>Enter pickup & delivery details through our easy-to-use form.</p>
+      </div>
+      <div class="step" data-aos="zoom-in">
+        <div class="icon">🚚</div>
+        <h3>2. Pickup</h3>
+        <p>Our driver picks up your package from the specified location.</p>
+      </div>
+      <div class="step" data-aos="fade-left">
+        <div class="icon">✅</div>
+        <h3>3. Delivery</h3>
+        <p>Your package is safely delivered to its destination.</p>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Add interactive cursor effects (optional for mobile)
-        document.addEventListener('DOMContentLoaded', () => {
-            document.body.addEventListener('mousemove', (e) => {
-                const glow = document.createElement('div');
-                glow.style.position = 'fixed';
-                glow.style.width = '20px';
-                glow.style.height = '20px';
-                glow.style.background = 'radial-gradient(circle, #00DBFF, transparent)';
-                glow.style.borderRadius = '50%';
-                glow.style.left = e.clientX - 10 + 'px';
-                glow.style.top = e.clientY - 10 + 'px';
-                glow.style.pointerEvents = 'none';
-                document.body.appendChild(glow);
-                
-                setTimeout(() => glow.remove(), 500);
-            });
-        });
-    </script>
+  <section id="pricing" data-aos="fade-up">
+    <h2>Delivery Pricing</h2>
+    <div class="pricing-cards">
+      <div class="card" data-aos="fade-right">
+        <h3>Local Delivery</h3>
+        <p>0-5 kilometers</p>
+        <p class="price">R25</p>
+      </div>
+      <div class="card" data-aos="zoom-in">
+        <h3>Medium Range</h3>
+        <p>5-10 kilometers</p>
+        <p class="price">R45</p>
+      </div>
+      <div class="card" data-aos="fade-left">
+        <h3>Extended Range</h3>
+        <p>10-15 kilometers</p>
+        <p class="price">R65</p>
+      </div>
+    </div>
+    <p>* Additional charges may apply for distances beyond 15km.</p>
+  </section>
+
+  <section id="request-delivery" data-aos="fade-up">
+    <h2>Request Your Delivery Now! 🚚</h2>
+    <p>Quick, reliable, and hassle-free!</p>
+    <form id="delivery-form">
+      <input type="text" name="name" placeholder="Customer Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="pickup" placeholder="Pickup Address" required />
+      <input type="text" name="delivery" placeholder="Delivery Address" required />
+      <textarea name="package" placeholder="Package Description" required></textarea>
+      <textarea name="instructions" placeholder="Special Instructions"></textarea>
+      <button type="submit" class="form-btn floating">Request Delivery! 🚀</button>
+    </form>
+  </section>
+
+  <section id="become-driver" data-aos="fade-up">
+    <h2>Join Our Amazing Driver Team! 🌟</h2>
+    <p>Be part of something extraordinary!</p>
+    <form id="driver-form">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <select name="vehicle" required>
+        <option value="">Vehicle Type</option>
+        <option>🚗 Car</option>
+        <option>🏍️ Bike</option>
+        <option>🚐 Van</option>
+      </select>
+      <input type="text" name="license" placeholder="License Number" required />
+      <input type="number" name="experience" placeholder="Experience Years" required />
+      <button type="submit" class="form-btn floating">Submit Application 🚀</button>
+    </form>
+  </section>
+
+  <footer id="contact" data-aos="fade-up">
+    <p>📞 <a href="tel:+27734666595">073 466 6595</a> | ✉️ <a href="mailto:contact@dotgo.com">contact@dotgo.com</a></p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/27734666595" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2025 Dot Go. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    const setupWhatsAppSubmit = (formId, messageTemplate) => {
+      const form = document.getElementById(formId);
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const message = messageTemplate(formData);
+        window.open(`https://wa.me/27734666595?text=${encodeURIComponent(message)}`, '_blank');
+        form.reset();
+      });
+    };
+
+    setupWhatsAppSubmit('delivery-form', (data) => 
+      `📦 New Delivery Request:%0A%0A` +
+      `Name: ${data.get('name')}%0A` +
+      `Phone: ${data.get('phone')}%0A` +
+      `Pickup: ${data.get('pickup')}%0A` +
+      `Delivery: ${data.get('delivery')}%0A` +
+      `Package: ${data.get('package')}%0A` +
+      `Instructions: ${data.get('instructions') || 'None'}`
+    );
+
+    setupWhatsAppSubmit('driver-form', (data) => 
+      `🚗 New Driver Application:%0A%0A` +
+      `Hi I'm ${data.get('name')}, and I would like to become one of your drivers%0A` +
+      `Phone: ${data.get('phone')}%0A` +
+      `Vehicle: ${data.get('vehicle')}%0A` +
+      `License: ${data.get('license')}%0A` +
+      `Experience: ${data.get('experience')} years`
+    );
+  </script>
 </body>
-</html>
+    </html>
